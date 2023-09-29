@@ -27,6 +27,111 @@
   ],
   "project-settings": [
     {
+      "key": "oncore-protocol-id",
+      "name": "Field were OnCore Protocol Id will be saved.:",
+      "required": false,
+      "type": "field-list"
+    },
+    {
+      "key": "trigger-instrument",
+      "name": "REDCap instrument that will trigger EM to create OnCore Protocol:",
+      "required": true,
+      "type": "form-list"
+    },
+    {
+      "key": "logic-trigger",
+      "name": "If logic is true then create OnCore Protocol for saved record.:",
+      "required": true,
+      "type": "textarea"
+    },
+    {
+      "key": "protocol_mapping",
+      "name": "<b>Configure OnCore Protocol Fields Mapping:</b> <span class=\"text-danger\"><strong>*Required*</strong></span>: <pre>{\n    <span class=\"text-danger\"><strong>\"department\"</strong></span>:,\n    <span class=\"text-danger\"><strong>\"library\"</strong></span>: ,\n    <span class=\"text-danger\"><strong>\"organizationalUnit\"</strong></span>: ,\n    <span class=\"text-danger\"><strong>\"protocolNo\"</strong></span>: ,\n    <span class=\"text-danger\"><strong>\"protocolType\"</strong></span> : ,\n    \"nctNo\": ,\n    \"title\": ,\n    \"shortTitle\": ,\n    \"objectives\": ,\n    \"phase\": ,\n    \"scope\": ,\n    \"age\": ,\n    \"investigatorInitiated\": ,\n    \"investigationalDrug\": ,\n    \"investigationalDevice\": ,\n    \"drugAccountability\": ,\n    \"dataMonitoring\": ,\n    \"includesSpecimenBanking\": ,\n    \"dataTable4ReportType\": ,\n    \"multiSiteTrial\": ,\n    \"excludeProtocolOnWeb\": ,\n    \"summaryAccrualInfoOnly\": ,\n    \"involvesTherapy\": ,\n    \"precisionTrial\": ,\n    \"precisionTrialClassification\": ,\n    \"pilot\": false,\n    \"involvesCorrelates\": true,\n    \"cancerControl\": ,\n    \"cancerPrevention\": ,\n    \"adjuvant\": ,\n    \"registrationCenter\": ,\n    \"accrualInformationNotApplicable\": ,\n    \"protocolTargetAccrual\": ,\n    \"rcLowerAccrualGoal\": ,\n    \"rcUpperAccrualGoal\": ,\n    \"rcAnnualAccrualGoal\": ,\n    \"affiliateAccrualGoal\": ,\n    \"accrualDuration\": ,\n    \"primaryCompletionDate\": ,\n    \"primaryCompletionDateType\": ,\n    \"studyCompletionDate\": ,\n    \"studyCompletionDateType\": \n}</pre>",
+      "required": true,
+      "type": "sub_settings",
+      "repeatable": true,
+      "sub_settings": [
+        {
+          "key": "oncore-protocol-field",
+          "name": "OnCore Protocol Field:",
+          "required": true,
+          "type": "text"
+        },
+        {
+          "key": "redcap-protocol-field",
+          "name": "REDCap Protocol Field:",
+          "required": false,
+          "type": "field-list"
+        },
+        {
+          "key": "oncore-protocol-default-value",
+          "name": "OnCore Protocol default value if not REDCap Field is provided:",
+          "required": false,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "key": "protocol_management_details_mapping",
+      "name": "<b>Configure OnCore Protocol Management Details Mapping:</b> <span class=\"text-danger\"><strong>*Required*</strong></span>: <pre>{\n    \"irbNo\": ,\n    \"gcrcParticipation\": ,\n    \"dsmcReviewFrequency\": ,\n    \"prmcReviewRequired\": ,\n    \"hospitalAccountNo\": ,\n    \"internalAccountNo\": ,\n    \"priorityScore\": ,\n    \"nciTrialId\": ,\n    \"adminstrativeGroups\": {\n        \"programAreas\": [\n            {\n                \"name\": ,\n                \"primary\": \n            },\n            {\n                \"name\": ,\n                \"primary\": \n            }\n        ],\n        \"oncologyGroups\": [\n            {\n                \"name\": ,\n                \"primary\": \n            },\n            {\n                \"name\": ,\n                \"primary\": \n            }\n        ],\n        \"managementGroups\": [\n            {\n                \"name\": ,\n                \"primary\": \n            },\n            {\n                \"name\": ,\n                \"primary\": \n            }\n        ]\n    }\n}</pre>",
+      "required": true,
+      "type": "sub_settings",
+      "repeatable": true,
+      "sub_settings": [
+        {
+          "key": "oncore-pmd-field",
+          "name": "OnCore Protocol Management Details  Field:",
+          "required": true,
+          "type": "text"
+        },
+        {
+          "key": "redcap-pmd-field",
+          "name": "REDCap Protocol Management Details Field:",
+          "required": false,
+          "type": "field-list"
+        },
+        {
+          "key": "oncore-pmd-default-value",
+          "name": "OnCore Protocol Management Details default value if not REDCap Field is provided:",
+          "required": false,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "key": "eprms_mapping",
+      "name": "<b>Configure OnCore ePRMS Submission Mapping:</b> <span class=\"text-danger\"><strong>*Required*</strong></span>: <pre>{\n   \"protocolId\" :,\n    <span class=\"text-danger\"><strong>\"reviewReason\"</strong></span>: ,\n    <span class=\"text-danger\"><strong>\"reviewType\"</strong></span>: \n}</pre>",
+      "required": true,
+      "type": "sub_settings",
+      "repeatable": true,
+      "sub_settings": [
+        {
+          "key": "oncore-eprms-field",
+          "name": "OnCore ePRMS Field: ",
+          "required": true,
+          "type": "text"
+        },
+        {
+          "key": "redcap-eprms-field",
+          "name": "REDCap ePRMS Field:",
+          "required": false,
+          "type": "field-list"
+        },
+        {
+          "key": "oncore-eprms-default-value",
+          "name": "OnCore ePRMS default value if not REDCap Field is provided:",
+          "required": false,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "key": "default-protocol-staff-role",
+      "name": "The EM will attempt to add REDCap user who created the protocol as Staff to the newly generated Protocol. Please type default Staff Role. ",
+      "required": true,
+      "type": "text"
+    },
+    {
       "key": "enable-project-debug-logging",
       "name": "<b>Enable Debug Logging</b><br><i>(optional)</i> Requires installation and configuration of emLogger",
       "required": false,

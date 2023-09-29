@@ -81,17 +81,22 @@ use stdClass;
      */
     private $fieldsDefinition = [];
 
+    private $redcapRecord = [];
     /**
      * @var bool
      */
     private $disableVerification = false;
 
+    protected $mapping = [];
     /**
      * @param $PREFIX
      */
-    public function __construct($PREFIX)
+    public function __construct($PREFIX, $mapping)
     {
         $this->setPREFIX($PREFIX);
+
+
+        $this->setMapping($mapping);
 
 
         $this->setDisableVerification(ExternalModules::getSystemSetting($this->getPrefix(), 'disable-ssl-verify') ? false : true);
@@ -441,5 +446,25 @@ use stdClass;
         $this->fieldsDefinition = $fieldsDefinition;
     }
 
+     public function getMapping(): array
+     {
+         return $this->mapping;
+     }
 
+     public function setMapping(array $mapping): void
+     {
+         $this->mapping = $mapping;
+     }
+
+
+
+    public function getRedcapRecord(): array
+    {
+        return $this->redcapRecord;
+    }
+
+    public function setRedcapRecord(array $redcapRecord): void
+    {
+        $this->redcapRecord = $redcapRecord;
+    }
 }
